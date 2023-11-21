@@ -1,0 +1,7 @@
+<%= form_tag("/home/view", {method: "get", class: "form_class"}) do %>
+        <div>
+            <%= text_field_tag (:data),"", placeholder: "Numbers:", value: "-10 -20 -30 50 6 7 8 10" %>
+        </div>
+        <%= submit_tag('Submit',  :class => "btn btn_input") %>
+
+    <% end %>
