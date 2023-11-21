@@ -15,7 +15,7 @@ class HomeController < ApplicationController
       
 
 
-      @result = task_26(arr_v).join(' ')
+      @result = task_37(arr_v).join(' ')
     else
       @result = []
     end
@@ -31,23 +31,24 @@ class HomeController < ApplicationController
   end
 
 
-  def task_26(arr)
+  def task_37(arr)
     fin_index = 0
     indexx =0
-    min_elem = arr.min
+    max_elem = arr.max
     neg_last_array = arr.select {|x| x<0}
     arr.each do |element|
-      if element %3 ==0 && element<0
+      if element %7 !=0 && element>=0
         last_el = element
         fin_index = indexx
+        break
       end
     indexx+=1
     end
-    if arr.select { |x| x < 0 }.count!=0
-      arr[fin_index] = min_elem
-    else
-      flash[:alert] = "no negative values."
+    if arr.select { |x| x%7!=0 }.count==0
+      flash[:alert] = "no values % 7=0."
       redirect_to root_path
+    else
+      arr[fin_index] = max_elem
     end
     return arr
   end
