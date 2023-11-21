@@ -31,17 +31,28 @@ class HomeController < ApplicationController
   end
 
 
-def task_26(arr)
-  max_elem = arr.max
-  min_index = arr.find_index(arr.min)
-  if arr.select { |x| x < 0 }.count!=0
-    arr[arr.find_index { |x| x<0 }] = max_elem
-  else
-    arr[min_index] = max_elem
+  def task_26(arr)
+    fin_index = 0
+    indexx =0
+    min_elem = arr.min
+    neg_last_array = arr.select {|x| x<0}
+    arr.each do |element|
+      if element %3 ==0 && element<0
+        last_el = element
+        fin_index = indexx
+      end
+    indexx+=1
+    end
+    if arr.select { |x| x < 0 }.count!=0
+      arr[fin_index] = min_elem
+    else
+      flash[:alert] = "no negative values."
+      redirect_to root_path
+    end
+    return arr
   end
-  return arr
 end
-end
+
 
 
 
