@@ -1,0 +1,44 @@
+<% if user_signed_in? %>
+
+
+<table class="table table-striped table-bordered table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th>Name</th>
+      <th>Manager</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @friends.each do |friend| %>
+    <% if friend.user == current_user %>
+      <tr>
+        <td><%= link_to friend.branch_name,friend %></td>
+        <td><%= friend.manager %></td>
+        <td><%= friend.email %></td>
+        <td><%= friend.phone %></td>
+        <!-- Actions column -->
+        <td>
+          <div class="d-flex align-items-center">
+            <%= button_to 'Delete', friend, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger btn-sm', onclick: "return confirm('Are you sure?');" %>
+          </div>
+        </td>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Новый ресторан', new_friend_path, class: 'btn btn-secondary' %>
+
+
+<%else %>
+<h1>Вы не авторизованы</h1>
+
+
+<% end %>

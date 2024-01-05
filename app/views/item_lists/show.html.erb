@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @item_list %>
+
+<div>
+  <%= link_to "Изменить", edit_item_list_path(@item_list) %> |
+  <%= link_to "Назад", item_lists_path %>
+
+  <%= button_to "Удалить", @item_list, method: :delete %>
+</div>

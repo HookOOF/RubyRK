@@ -1,0 +1,9 @@
+<!-- app/views/product_information/_result_partial.html.erb -->
+
+<% @product_information.each do |info| %>
+  <!-- Display information from each product_information record -->
+  <p>Date: <%= info.date %></p>
+  <p>Product ID: <%= info.product_id %></p>
+  <p>Quantity: <%= info.quantity %></p>
+  <!-- Add other fields as needed -->
+<% end %>

@@ -1,0 +1,13 @@
+<!-- app/views/product_information/new.html.erb -->
+<h1>Enter Product Information</h1>
+
+<%= form_tag '/product_information/create', method: :post do %>
+  <%= hidden_field_tag :date, params[:date] %>
+  <!-- Add fields for selecting products and quantities here -->
+  <!-- Example: -->
+  <%= label_tag 'product_id', 'Select Product' %>
+  <%= select_tag 'product_id', options_for_select(@existing_products.map { |product| [product.prod_name, product.id] }) %>
+  <%= label_tag 'quantity', 'Enter Quantity' %>
+  <%= number_field_tag 'quantity' %>
+  <%= submit_tag 'Submit' %>
+<% end %>

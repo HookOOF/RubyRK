@@ -1,0 +1,15 @@
+<!-- app/views/product_information/show_by_date.html.erb -->
+
+<% if @product_information.present? %>
+  <h1>Product Information for <%= @product_information.first.date %></h1>
+
+  <% @product_information.each do |info| %>
+    <!-- Display information from each product_information record -->
+    <p>Date: <%= info.date %></p>
+    <p>Product ID: <%= info.product_id %></p>
+    <p>Quantity: <%= info.quantity %></p>
+    <!-- Add other fields as needed -->
+  <% end %>
+<% else %>
+  <p>No product information found for the selected date.</p>
+<% end %>

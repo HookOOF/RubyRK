@@ -1,0 +1,15 @@
+
+
+
+
+
+
+
+
+<%= render @friend %>
+
+<div>
+
+<div>
+  <%= button_to "Удалить", @friend, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm", onclick: "return confirm('Вы уверены?');" %>
+</div>
